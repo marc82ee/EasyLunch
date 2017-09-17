@@ -1,16 +1,28 @@
 
 <ion-header>
+  
+    <ion-navbar>
+      <ion-buttons start>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title>Menu</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
 
-  <ion-navbar>
-    <ion-title>Menu</ion-title>
-  </ion-navbar>
-
-</ion-header>
 
 
 <ion-content padding>
   <ion-list>
-    <ion-item button> Ensalada griega </ion-item>
-    <ion-item button> Pisto manchego </ion-item>
+    <button
+      ion-item
+      *ngFor="let menuGroup of menu"
+    >
+      <ion-icon [name]="menuGroup.icon" item-left></ion-icon>
+      <h2>{{ menuGroup.category | uppercase }}</h2>
+      <p>{{ menuGroup.dishes.length }} Quotes</p>
+    </button>
   </ion-list>
 </ion-content>

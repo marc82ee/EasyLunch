@@ -1,21 +1,18 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component,OnInit } from '@angular/core';
 
-/**
- * Generated class for the MenuPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import dishes from "../../data/menu";
+import { Dish } from '../../data/dish.interface';
 
-@IonicPage()
+
 @Component({
   selector: 'page-menu',
   templateUrl: 'menu.html',
 })
-export class MenuPage {
+export class MenuPage implements OnInit {
+  menu: {category:string, dishes: Dish[], icon:string}[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  ngOnInit(){
+    this.menu = dishes;
   }
 
   ionViewDidLoad() {
